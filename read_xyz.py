@@ -34,16 +34,14 @@ def read_xyz(path):
                     elem = int(elem)
                 else:
                     # to identify atoms we may have labels like "C1"
-                    for i,c in enumerate(alab):
-                        if c.isdigit():
-                            elem = alab[:i]
+                    elem = alab[:2]
+                    if elem not in periodic_table:
+                        elem = alab[:1]
+                        if elem not in periodic_table:
+                            print (f"Unsupported element: {elem}.. skipping {label}")
+                            mol = None
                             break
-                    if elem in periodic_table:
-                        elem = periodic_table[elem]
-                    else: # skip it
-                        print (f"Unsupported element: {elem}.. skipping {label}")
-                        mol = None
-                        break
+                    elem = periodic_table[elem]
                         
                 mol.labels.append(alab)
                 mol.species.append(elem)
