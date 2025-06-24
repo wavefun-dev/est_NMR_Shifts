@@ -34,3 +34,6 @@ In tab sperated xyz files.
 - **read_xyz.py**  subroutine to read xyz files
 - **run_model.py**  wrapper to
 - **DLNMR1.pt** the weights for the Neural Network
+
+## Training set InChIs
+- **selected_drugs.xlsx** some synthetic drugs and drug like molecules used in the training set
